@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:46:15 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/13 11:46:16 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/13 15:21:20 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,19 +239,18 @@ void fill_win(t_data *a)
 		a->h = 0;
 		while (a->taible[a->i][a->h])
 		{
-		printf("%d\n",a->i);
+		// printf("%d\n",a->i);
 			if (a->taible[a->i][a->h] == '1')
 				mlx_put_image_to_window(a->mlx, a->win, a->wall, a->width * a->h , a->height * a->i);
 			else if (a->taible[a->i][a->h] == '0')
 				mlx_put_image_to_window(a->mlx, a->win, a->grn, a->width * a->h , a->height * a->i);
 			else if (a->taible[a->i][a->h] == 'P')
 			{
-				mlx_put_image_to_window(a->mlx, a->win, a->grn, a->width * a->h , a->height * a->i);
 				mlx_put_image_to_window(a->mlx, a->win, a->ply, a->width * a->h , a->height * a->i);
 			}
 			else if (a->taible[a->i][a->h] == 'C')
 			{
-				mlx_put_image_to_window(a->mlx, a->win, a->grn, a->width * a->h , a->height * a->i);
+				// mlx_put_image_to_window(a->mlx, a->win, a->grn, a->width * a->h , a->height * a->i);
 				mlx_put_image_to_window(a->mlx, a->win, a->col,  a->width * a->h , a->height * a->i);
 			}			
 			else if (a->taible[a->i][a->h] == 'E')
@@ -259,11 +258,8 @@ void fill_win(t_data *a)
 				mlx_put_image_to_window(a->mlx, a->win, a->grn, a->width * a->h , a->height * a->i);
 				mlx_put_image_to_window(a->mlx, a->win, a->dor,  a->width * a->h , a->height * a->i);
 			}			
-			// else if (a->taible[a->i][a->h] == 'E')
-			// {
-			// 	mlx_put_image_to_window(a->mlx, a->win, a->grn, a->width * a->h , a->height * a->i);
-			// 	mlx_put_image_to_window(a->mlx, a->win, a->dor,  a->width * a->h , a->height * a->i);
-			// }
+			else if (a->taible[a->i][a->h] == 'A')
+				mlx_put_image_to_window(a->mlx, a->win, a->enemy,  a->width * a->h , a->height * a->i);
 			a->h++;
 		}
 		a->i++;
@@ -279,12 +275,12 @@ int main(int argc , char **argv )
 	a.taible = ft_split(a.str,'\n');
 	while (a.taible[a.i])
 		a.i++;
-	a.grn = mlx_xpm_file_to_image(a.mlx, "../utils/gr.xpm", &a.width, &a.height);
-	a.col = mlx_xpm_file_to_image(a.mlx, "../utils/l7am2.xpm", &a.width, &a.height);
-	a.dor = mlx_xpm_file_to_image(a.mlx, "../utils/door1sghir.xpm", &a.width, &a.height);
-	// a.enemy = mlx_xpm_file_to_image(a.mlx, "enemy.xpm", &a.width, &a.height);
+	a.grn = mlx_xpm_file_to_image(a.mlx, "../utils/realwall.xpm", &a.width, &a.height);
+	a.col = mlx_xpm_file_to_image(a.mlx, "../utils/l7am.xpm", &a.width, &a.height);
+	a.dor = mlx_xpm_file_to_image(a.mlx, "../utils/bab.xpm", &a.width, &a.height);
+	a.enemy = mlx_xpm_file_to_image(a.mlx, "../utils/enemyzamel.xpm", &a.width, &a.height);
 	a.wall = mlx_xpm_file_to_image(a.mlx, "../utils/wall.xpm", &a.width, &a.height);
-	a.ply = mlx_xpm_file_to_image(a.mlx, "../utils/player.xpm", &a.width, &a.height);
+	a.ply = mlx_xpm_file_to_image(a.mlx, "../utils/playerfinish.xpm", &a.width, &a.height);
 	a.win = mlx_new_window(a.mlx, ft_strlen(a.taible[1],'\0') * a.width, a.i * a.height, "So_long");
 	fill_win(&a);
 	mlx_loop(a.mlx);
