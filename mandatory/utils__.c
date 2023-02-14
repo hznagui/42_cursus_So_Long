@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:04:54 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/14 14:19:59 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/14 17:32:45 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,10 @@ int	find_meat(char **a)
 		i++;
 	}
 	return (0);
+}
+
+void	ft_abort(void)
+{
+	write(2, "Error\n", 6);
+	exit (1);
 }

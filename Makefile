@@ -6,7 +6,7 @@
 #    By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 15:20:47 by hznagui           #+#    #+#              #
-#    Updated: 2023/02/14 15:48:57 by hznagui          ###   ########.fr        #
+#    Updated: 2023/02/14 18:25:26 by hznagui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,8 @@ bonus : $(OBJ_FILE_B) bonus/so_long_bonus.h
 $(MAND)%.o: %.c mandatory/so_long.h
 	$(CC) $(FLAGS) -Imlx -c $< -o $@
 
-$(BON)%.o: %.c mandatory/so_long_bonus.h
-	$(CC) $(FLAGS) -Imlx -c $< -o $@
+# $(BON)%.o: %.c mandatory/so_long_bonus.h
+# 	$(CC) $(FLAGS) -Imlx -c $< -o $@
 
 clean :
 	rm -rf $(OBJ_FILE)
