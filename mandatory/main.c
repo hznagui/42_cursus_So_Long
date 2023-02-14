@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:46:15 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/14 18:56:58 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/14 18:59:01 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,6 @@ int	main(int argc, char **argv)
 		a.win = mlx_new_window(a.mlx, ft_strlen(a.taible[1], '\0') * a.width,
 				a.i * a.height, "So_long");
 		fill_win(&a);
-		// printf("%d\n",a.i);
 		mlx_hook(a.win, 2, 0, move, &a);
 		mlx_hook(a.win, 17, 0, ft_close, &a);
 		mlx_loop(a.mlx);
