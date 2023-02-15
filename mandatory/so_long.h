@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:27:51 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/15 18:17:42 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/15 19:39:18 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct data
 	char	**taible2;
 	int		i;
 	int	n;
+	int	z;
 	int		d;
 	int		h;
 }			t_alldata;

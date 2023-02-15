@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:46:15 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/15 18:23:55 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/15 19:50:53 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,25 @@ int	ft_close(void *a)
 	(void)a;
 	exit(0);
 }
-
+void skip_nl(t_alldata *a){
+		int u;
+		int m;
+		
+		while (a->str[a->z])
+		{
+			u = 0;
+			if (a->str[a->z] != '\n')
+				m=1;
+			while (a->str[a->z] == '\n' && m == 1)
+			{
+				u++;
+				a->z++;
+			}
+			if (a->str[a->z] && u > 1)
+				ft_abort(2);
+			a->z++;
+		}
+	}
 int	main(int argc, char **argv)
 {
 	t_alldata	a;
@@ -139,7 +157,9 @@ int	main(int argc, char **argv)
 	{
 		a.d = 0;
 		a.n = 0;
+		a.z = 0;
 		a.str = reading_map(argv[1]);
+		skip_nl(&a);
 		a.mlx = mlx_init();
 		a.taible = ft_split(a.str, '\n');
 		a.taible2 = ft_split(a.str, '\n');

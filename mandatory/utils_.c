@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:34:12 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/15 18:25:43 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/15 19:23:30 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char	*reading_map(char *str)
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 		ft_abort(6);
-	buffer = malloc((5 + 1) * sizeof(char));
+	buffer = malloc((5) * sizeof(char));
 	if (!buffer)
 		ft_abort(1);
 	while (readvl)
