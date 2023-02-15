@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:27:51 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/15 11:43:46 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/15 15:06:16 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct data
 	void	*col;
 	void	*opndor;
 	char	**taible;
+	char	**taible2;
 	int		i;
 	int	n;
 	int		d;
@@ -58,5 +59,6 @@ void		fill_win(t_alldata *a);
 void		ft_abort(void);
 void	ft_putnbr(int n);
 void	ft_putchar(char c);
+void ft_check(t_alldata *a);
 
 #endif

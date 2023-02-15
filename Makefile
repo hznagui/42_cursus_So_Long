@@ -6,7 +6,7 @@
 #    By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 15:20:47 by hznagui           #+#    #+#              #
-#    Updated: 2023/02/14 18:25:26 by hznagui          ###   ########.fr        #
+#    Updated: 2023/02/15 15:04:03 by hznagui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC_FILE = 	mandatory/main.c \
 			mandatory/utils.c \
 			mandatory/utils__.c \
 			mandatory/utils_.c \
+			mandatory/error.c \
 
 OBJ_FILE = $(SRC_FILE:.c=.o)
 
