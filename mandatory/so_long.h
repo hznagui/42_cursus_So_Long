@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:27:51 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/15 15:06:16 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/15 18:17:42 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		find_player(t_alldata *a);
 int			find_meat(char **a);
 int			ft_close(void *a);
 void		fill_win(t_alldata *a);
-void		ft_abort(void);
+void	ft_abort(int i);
 void	ft_putnbr(int n);
 void	ft_putchar(char c);
 void ft_check(t_alldata *a);

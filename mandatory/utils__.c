@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:04:54 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/15 11:46:08 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/15 18:49:08 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,26 @@ int	find_meat(char **a)
 	return (1);
 }
 
-void	ft_abort(void)
+void	ft_abort(int i)
 {
-	write(2, "Error\n", 6);
+	if (i == 1)
+		write(2, "Error : malloc problem \n", 25);
+	else if (i == 2)
+		write(2, "Error : please check the map size\n", 35);
+	else if (i == 3)
+		write(2, "Error : check the path\n", 24);
+	else if (i == 4)
+		write(2, "Error : check the numbers of variables \n", 41);
+	else if (i == 5)
+		write(2, "Error : check variablesin the map \n", 36);
+	else if (i == 6)
+		write(2, "Error : where is the map ? \n", 29);
+	else if (i == 7)
+		write(2, "Error : check arguments \n", 26);
+	else if (i == 8)
+		write(2, "Error : there are nothing ! \n", 30);	
+	else if (i == 9)
+		write(2, "Error : check the edges of the map \n", 37);
 	exit (1);
 }
 
