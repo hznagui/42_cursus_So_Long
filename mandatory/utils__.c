@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:04:54 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/14 17:32:45 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:46:08 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,45 @@ int	find_meat(char **a)
 		while (a[i][h])
 		{
 			if (a[i][h] == 'C')
-				return (1);
+				return (0);
 			h++;
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 void	ft_abort(void)
 {
 	write(2, "Error\n", 6);
 	exit (1);
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int n)
+{
+	if (n == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		ft_putnbr(147483648);
+	}
+	else if (n < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(n * -1);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
+	else
+	{
+		ft_putchar(n + '0');
+	}
 }

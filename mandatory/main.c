@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:46:15 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/14 18:59:01 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:48:22 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,26 @@ void	fill_win(t_alldata *a)
 		while (a->taible[a->i][a->h])
 		{
 			if (a->taible[a->i][a->h] == '1')
-				mlx_put_image_to_window(a->mlx, a->win, a->wall, a->width * a->h, a->height * a->i);
+				mlx_put_image_to_window(a->mlx, a->win, a->wall, a->width
+						* a->h, a->height * a->i);
 			else if (a->taible[a->i][a->h] == '0')
-				mlx_put_image_to_window(a->mlx, a->win, a->grn, a->width * a->h,a->height * a->i);
+				mlx_put_image_to_window(a->mlx, a->win, a->grn, a->width * a->h,
+						a->height * a->i);
 			else if (a->taible[a->i][a->h] == 'P')
 			{
-				if (a->d == 0)
-					mlx_put_image_to_window(a->mlx, a->win, a->ply2, a->width * a->h, a->height * a->i);
+				if (a->d == 1)
+					mlx_put_image_to_window(a->mlx, a->win, a->ply, a->width
+							* a->h, a->height * a->i);
 				else
-					mlx_put_image_to_window(a->mlx, a->win, a->ply, a->width * a->h, a->height * a->i);
+					mlx_put_image_to_window(a->mlx, a->win, a->ply2, a->width
+							* a->h, a->height * a->i);
 			}
 			else if (a->taible[a->i][a->h] == 'C')
-				mlx_put_image_to_window(a->mlx, a->win, a->col, a->width * a->h, a->height * a->i);
+				mlx_put_image_to_window(a->mlx, a->win, a->col, a->width * a->h,
+						a->height * a->i);
 			else if (a->taible[a->i][a->h] == 'E')
 			{
-				if (find_meat(a->taible))
+				if (!find_meat(a->taible))
 					mlx_put_image_to_window(a->mlx, a->win, a->dor, a->width
 							* a->h, a->height * a->i);
 				else
@@ -44,47 +49,51 @@ void	fill_win(t_alldata *a)
 							* a->h, a->height * a->i);
 			}
 			else if (a->taible[a->i][a->h] == 'A')
-				mlx_put_image_to_window(a->mlx, a->win, a->enemy,  a->width * a->h , a->height * a->i);
-			// printf("ha ana \n");
+				mlx_put_image_to_window(a->mlx, a->win, a->enemy, a->width
+						* a->h, a->height * a->i);
 			a->h++;
 		}
 		a->i++;
 	}
 }
-
-
+void	move2(int keycode, t_alldata *a)
+{
+	if (((keycode == 0) || (keycode == 123)) && (a->taible[a->i][a->h
+			- 1] == 'E') && find_meat(a->taible))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+	else if (((keycode == 2) || (keycode == 124)) && (a->taible[a->i][a->h
+				+ 1] == 'E') && find_meat(a->taible))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+	else if (((keycode == 13) || (keycode == 126)) && (a->taible[a->i
+				- 1][a->h] == 'E') && find_meat(a->taible))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+	else if (((keycode == 1) || (keycode == 125)) && (a->taible[a->i
+				+ 1][a->h] == 'E') && find_meat(a->taible))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+}
 int	move(int keycode, t_alldata *a)
 {
 	find_player(a);
 	if (keycode == 53)
 		exit(0);
 	else if (((keycode == 0) || (keycode == 123)) && (a->taible[a->i][a->h
-				- 1] != '1'))
-	{
-		a->taible[a->i][a->h] = '0';
-		a->taible[a->i][a->h - 1] = 'P';
-		a->d = 0;
-	}
+				- 1] != '1') && (a->taible[a->i][a->h - 1] != 'E'))
+		return (a->taible[a->i][a->h] = '0', a->taible[a->i][a->h - 1] = 'P',
+			a->d = 0, ft_putnbr(a->n++), ft_putchar('\n'), fill_win(a), 0);
 	else if (((keycode == 2) || (keycode == 124)) && (a->taible[a->i][a->h
-				+ 1] != '1'))
-	{
-		a->taible[a->i][a->h] = '0';
-		a->taible[a->i][a->h + 1] = 'P';
-		a->d = 1;
-	}
+				+ 1] != '1') && (a->taible[a->i][a->h + 1] != 'E'))
+		return (a->taible[a->i][a->h] = '0', a->taible[a->i][a->h + 1] = 'P',
+			a->d = 1, ft_putnbr(a->n++), ft_putchar('\n'), fill_win(a), 0);
 	else if (((keycode == 13) || (keycode == 126)) && (a->taible[a->i
-				- 1][a->h] != '1'))
-	{
-		a->taible[a->i][a->h] = '0';
-		a->taible[a->i - 1][a->h] = 'P';
-	}
+				- 1][a->h] != '1') && (a->taible[a->i - 1][a->h] != 'E'))
+		return (a->taible[a->i][a->h] = '0', a->taible[a->i - 1][a->h] = 'P',
+			ft_putnbr(a->n++), ft_putchar('\n'), fill_win(a), 0);
 	else if (((keycode == 1) || (keycode == 125)) && (a->taible[a->i
-				+ 1][a->h] != '1'))
-	{
-		a->taible[a->i][a->h] = '0';
-		a->taible[a->i + 1][a->h] = 'P';
-	}
-	fill_win(a);
+				+ 1][a->h] != '1') && (a->taible[a->i + 1][a->h] != 'E'))
+		return (a->taible[a->i][a->h] = '0', a->taible[a->i + 1][a->h] = 'P',
+			ft_putnbr(a->n++), ft_putchar('\n'), fill_win(a), 0);
+	else
+		move2(keycode, a);
 	return (0);
 }
 
@@ -101,6 +110,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		a.i = 0;
+		a.n = 0;
 		a.str = reading_map(argv[1]);
 		a.mlx = mlx_init();
 		a.taible = ft_split(a.str, '\n');

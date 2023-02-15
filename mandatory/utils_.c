@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:34:12 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/14 18:08:42 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/15 10:05:30 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,16 +103,18 @@ char	*reading_map(char *str)
 	readvl = 1;
 	line = NULL;
 	fd = open(str, O_RDONLY);
+	if (fd == -1)
+		ft_abort();
 	buffer = malloc((5 + 1) * sizeof(char));
 	if (!buffer)
-		return (0);
+		ft_abort();
 	while (readvl)
 	{
 		readvl = read(fd, buffer, 5);
 		if (readvl == -1)
-			return (free(line), free(buffer), NULL);
+			return (free(line), free(buffer),ft_abort(), NULL);
 		else if (!readvl && !line)
-			return (free(buffer), NULL);
+			return (free(buffer), ft_abort(), NULL);
 		else if (!readvl)
 			return (free(buffer), line);
 		buffer[readvl] = '\0';
