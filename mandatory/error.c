@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:10:37 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 15:31:10 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/16 16:04:09 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,16 +116,4 @@ void	check_size(t_alldata *a, int k, int y)
 			ft_abort(9);
 	}
 	check_eadgs(a, 0, 0, 0);
-}
-
-void	ft_check(t_alldata *a)
-{
-	while (a->taible[a->d])
-		a->d++;
-	check_size(a, 0, 0);
-	check_nb(a, 0, 0, 0);
-	find_player(a);
-	find_path(a->i, a->h, a);
-	if (!find_meat(a->taible2) || !find_exit(a->taible2))
-		ft_abort(3);
 }

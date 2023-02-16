@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:34:12 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/15 19:23:30 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/16 15:49:53 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,11 @@ char	**ft_split(char const *s, char c)
 
 /*----------------------------------------------------------------*/
 
-char	*reading_map(char *str)
+char	*reading_map(char *str, char *line, int readvl)
 {
 	char	*buffer;
-	int		readvl;
-	char	*line;
 	int		fd;
 
-	readvl = 1;
-	line = NULL;
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 		ft_abort(6);

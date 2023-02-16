@@ -6,7 +6,7 @@
 #    By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 15:20:47 by hznagui           #+#    #+#              #
-#    Updated: 2023/02/16 15:28:35 by hznagui          ###   ########.fr        #
+#    Updated: 2023/02/16 16:29:13 by hznagui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,16 @@ BNS_FILE = 	bonus/main_bonus.c \
 			bonus/utils_bonus.c \
 			bonus/error_bonus.c \
 			
-SRC_FILE = 	mandatory/main.c \
-			mandatory/utils.c \
+SRC_FILE = 	mandatory/utils.c \
+			mandatory/utils1.c \
+			mandatory/utils2.c \
 			mandatory/utils__.c \
 			mandatory/utils_.c \
 			mandatory/error.c \
+			mandatory/main.c \
 
 OBJ_FILE = $(SRC_FILE:.c=.o)
+
 OBJ_FILE_B = $(BNS_FILE:.c=.o)
 
 all : $(NAME)
@@ -40,7 +43,7 @@ all : $(NAME)
 $(NAME) : $(OBJ_FILE) mandatory/so_long.h $(MAND)
 	cc $(FLAGS) $(OBJ_FILE) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-bonus : $(OBJ_FILE_B) bonus/so_long_bonus.h 
+bonus : $(OBJ_FILE_B) bonus/so_long_bonus.h $(BON)
 	cc $(FLAGS) $(OBJ_FILE_B) -lmlx -framework OpenGL -framework AppKit -o $(NAME_B)
 
 $(MAND)%.o: %.c mandatory/so_long.h
