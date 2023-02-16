@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:46:15 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/15 19:50:53 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/16 13:54:58 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,36 +65,37 @@ void	fill_win(t_alldata *a)
 void	move3(int keycode, t_alldata *a)
 {
 	if (((keycode == 0) || (keycode == 123)) && (a->taible[a->i][a->h
-			- 1] == 'A') && find_meat(a->taible))
-		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+			- 1] == 'A'))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), write(1,"YOU LOSE!\n",11) , exit(0));
 	else if (((keycode == 2) || (keycode == 124)) && (a->taible[a->i][a->h
-				+ 1] == 'A') && find_meat(a->taible))
+				+ 1] == 'A'))
 		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
 	else if (((keycode == 13) || (keycode == 126)) && (a->taible[a->i
-				- 1][a->h] == 'A') && find_meat(a->taible))
-		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+				- 1][a->h] == 'A'))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), write(1,"YOU LOSE!\n",11), exit(0));
 	else if (((keycode == 1) || (keycode == 125)) && (a->taible[a->i
-				+ 1][a->h] == 'A') && find_meat(a->taible))
-		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+				+ 1][a->h] == 'A'))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), write(1,"YOU LOSE!\n",11), exit(0));
 }
 
 void	move2(int keycode, t_alldata *a)
 {
 	if (((keycode == 0) || (keycode == 123)) && (a->taible[a->i][a->h
 			- 1] == 'E') && find_meat(a->taible))
-		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+		return (ft_putnbr(a->n++), ft_putchar('\n'), write(1,"YOU WIN!\n",10), exit(0));
 	else if (((keycode == 2) || (keycode == 124)) && (a->taible[a->i][a->h
 				+ 1] == 'E') && find_meat(a->taible))
-		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+		return (ft_putnbr(a->n++), ft_putchar('\n'),write(1,"YOU WIN!\n",10), exit(0));
 	else if (((keycode == 13) || (keycode == 126)) && (a->taible[a->i
 				- 1][a->h] == 'E') && find_meat(a->taible))
-		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+		return (ft_putnbr(a->n++), ft_putchar('\n'),write(1,"YOU WIN!\n",10), exit(0));
 	else if (((keycode == 1) || (keycode == 125)) && (a->taible[a->i
 				+ 1][a->h] == 'E') && find_meat(a->taible))
-		return (ft_putnbr(a->n++), ft_putchar('\n'), exit(0));
+		return (ft_putnbr(a->n++), ft_putchar('\n'),write(1,"YOU WIN!\n",10), exit(0));
 	else
 		move3(keycode,a);
 }
+
 int	move(int keycode, t_alldata *a)
 {
 	find_player(a);
@@ -160,10 +161,6 @@ int	main(int argc, char **argv)
 		a.z = 0;
 		a.str = reading_map(argv[1]);
 		skip_nl(&a);
-		a.mlx = mlx_init();
-		a.taible = ft_split(a.str, '\n');
-		a.taible2 = ft_split(a.str, '\n');
-		ft_check(&a);
 		a.grn = mlx_xpm_file_to_image(a.mlx, "../utils/realwall.xpm", &a.width,
 				&a.height);
 		a.col = mlx_xpm_file_to_image(a.mlx, "../utils/l7am.xpm", &a.width,
@@ -182,6 +179,10 @@ int	main(int argc, char **argv)
 				&a.width, &a.height);
 		a.win = mlx_new_window(a.mlx, ft_strlen(a.taible[1], '\0') * a.width,
 				a.d * a.height, "So_long");
+		a.mlx = mlx_init();
+		a.taible = ft_split(a.str, '\n');
+		a.taible2 = ft_split(a.str, '\n');
+		ft_check(&a);
 		fill_win(&a);
 		mlx_hook(a.win, 2, 0, move, &a);
 		mlx_hook(a.win, 17, 0, ft_close, &a);
