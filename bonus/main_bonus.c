@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:46:15 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 15:33:33 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/16 15:26:58 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	fill_win2(t_alldata *a)
 {
@@ -26,6 +26,9 @@ void	fill_win2(t_alldata *a)
 			mlx_put_image_to_window(a->mlx, a->win, a->opndor, a->width * a->h,
 					a->height * a->i);
 	}
+	else if (a->taible[a->i][a->h] == 'A')
+		mlx_put_image_to_window(a->mlx, a->win, a->enemy, a->width * a->h,
+				a->height * a->i);
 }
 void	fill_win(t_alldata *a)
 {
@@ -59,6 +62,26 @@ void	fill_win(t_alldata *a)
 	}
 }
 
+void	move3(int keycode, t_alldata *a)
+{
+	if (((keycode == 0) || (keycode == 123)) && (a->taible[a->i][a->h
+			- 1] == 'A'))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), write(1, "YOU LOSE!\n",
+				11), exit(0));
+	else if (((keycode == 2) || (keycode == 124)) && (a->taible[a->i][a->h
+				+ 1] == 'A'))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), write(1, "YOU LOSE!\n",
+				11), exit(0));
+	else if (((keycode == 13) || (keycode == 126)) && (a->taible[a->i
+				- 1][a->h] == 'A'))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), write(1, "YOU LOSE!\n",
+				11), exit(0));
+	else if (((keycode == 1) || (keycode == 125)) && (a->taible[a->i
+				+ 1][a->h] == 'A'))
+		return (ft_putnbr(a->n++), ft_putchar('\n'), write(1, "YOU LOSE!\n",
+				11), exit(0));
+}
+
 void	move2(int keycode, t_alldata *a)
 {
 	if (((keycode == 0) || (keycode == 123)) && (a->taible[a->i][a->h
@@ -77,6 +100,8 @@ void	move2(int keycode, t_alldata *a)
 				+ 1][a->h] == 'E') && find_meat(a->taible))
 		return (ft_putnbr(a->n++), ft_putchar('\n'), write(1, "YOU WIN!\n", 10),
 			exit(0));
+	else
+		move3(keycode, a);
 }
 
 int	move(int keycode, t_alldata *a)
@@ -85,19 +110,23 @@ int	move(int keycode, t_alldata *a)
 	if (keycode == 53)
 		exit(0);
 	else if (((keycode == 0) || (keycode == 123)) && (a->taible[a->i][a->h
-				- 1] != '1') && (a->taible[a->i][a->h - 1] != 'E'))
+				- 1] != '1') && (a->taible[a->i][a->h - 1] != 'E')
+			&& (a->taible[a->i][a->h - 1] != 'A'))
 		return (a->taible[a->i][a->h] = '0', a->taible[a->i][a->h - 1] = 'P',
 			a->d = 1, ft_putnbr(a->n++), ft_putchar('\n'), fill_win(a), 0);
 	else if (((keycode == 2) || (keycode == 124)) && (a->taible[a->i][a->h
-				+ 1] != '1') && (a->taible[a->i][a->h + 1] != 'E'))
+				+ 1] != '1') && (a->taible[a->i][a->h + 1] != 'E')
+			&& (a->taible[a->i][a->h + 1] != 'A'))
 		return (a->taible[a->i][a->h] = '0', a->taible[a->i][a->h + 1] = 'P',
 			a->d = 0, ft_putnbr(a->n++), ft_putchar('\n'), fill_win(a), 0);
 	else if (((keycode == 13) || (keycode == 126)) && (a->taible[a->i
-				- 1][a->h] != '1') && (a->taible[a->i - 1][a->h] != 'E'))
+				- 1][a->h] != '1') && (a->taible[a->i - 1][a->h] != 'E')
+			&& (a->taible[a->i - 1][a->h] != 'A'))
 		return (a->taible[a->i][a->h] = '0', a->taible[a->i - 1][a->h] = 'P',
 			ft_putnbr(a->n++), ft_putchar('\n'), fill_win(a), 0);
 	else if (((keycode == 1) || (keycode == 125)) && (a->taible[a->i
-				+ 1][a->h] != '1') && (a->taible[a->i + 1][a->h] != 'E'))
+				+ 1][a->h] != '1') && (a->taible[a->i + 1][a->h] != 'E')
+			&& (a->taible[a->i + 1][a->h] != 'A'))
 		return (a->taible[a->i][a->h] = '0', a->taible[a->i + 1][a->h] = 'P',
 			ft_putnbr(a->n++), ft_putchar('\n'), fill_win(a), 0);
 	else
@@ -166,6 +195,10 @@ void	images(t_alldata *a)
 			&a->height);
 	if (!(a->dor) || a->width != 50 || a->height != 50)
 		ft_abort(10);
+	a->enemy = mlx_xpm_file_to_image(a->mlx, "../utils/enemy.xpm", &a->width,
+			&a->height);
+	if (!(a->enemy) || a->width != 50 || a->height != 50)
+		ft_abort(10);
 	images2(a);
 }
 
@@ -181,8 +214,6 @@ int	main(int argc, char **argv)
 		a.str = reading_map(argv[1]);
 		skip_nl(&a);
 		a.mlx = mlx_init();
-		if (!(a.mlx))
-			ft_abort(10);
 		a.taible = ft_split(a.str, '\n');
 		a.taible2 = ft_split(a.str, '\n');
 		ft_check(&a);

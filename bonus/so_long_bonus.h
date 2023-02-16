@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:27:51 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 15:33:56 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/16 15:26:49 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <fcntl.h>
 # include <mlx.h>
@@ -30,6 +30,7 @@ typedef struct data
 	void	*ply;
 	void	*ply2;
 	void	*dor;
+	void	*enemy;
 	char	*str;
 	void	*col;
 	void	*opndor;

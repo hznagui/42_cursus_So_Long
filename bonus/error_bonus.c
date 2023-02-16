@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:10:37 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 15:31:10 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/16 15:27:02 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	find_path(int i, int h, t_alldata *a)
 {
@@ -67,7 +67,8 @@ void	check_nb(t_alldata *a, int P, int C, int E)
 			else if (a->taible[a->i][a->h] == 'P')
 				P += 1;
 			else if (a->taible[a->i][a->h] != '1'
-					&& a->taible[a->i][a->h] != '0')
+					&& a->taible[a->i][a->h] != '0'
+					&& a->taible[a->i][a->h] != 'A')
 				ft_abort(5);
 			a->h++;
 		}
