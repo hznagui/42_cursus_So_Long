@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:46:15 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 13:54:58 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/16 13:55:55 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,10 @@ int	main(int argc, char **argv)
 		a.z = 0;
 		a.str = reading_map(argv[1]);
 		skip_nl(&a);
+		a.mlx = mlx_init();
+		a.taible = ft_split(a.str, '\n');
+		a.taible2 = ft_split(a.str, '\n');
+		ft_check(&a);
 		a.grn = mlx_xpm_file_to_image(a.mlx, "../utils/realwall.xpm", &a.width,
 				&a.height);
 		a.col = mlx_xpm_file_to_image(a.mlx, "../utils/l7am.xpm", &a.width,
@@ -179,10 +183,6 @@ int	main(int argc, char **argv)
 				&a.width, &a.height);
 		a.win = mlx_new_window(a.mlx, ft_strlen(a.taible[1], '\0') * a.width,
 				a.d * a.height, "So_long");
-		a.mlx = mlx_init();
-		a.taible = ft_split(a.str, '\n');
-		a.taible2 = ft_split(a.str, '\n');
-		ft_check(&a);
 		fill_win(&a);
 		mlx_hook(a.win, 2, 0, move, &a);
 		mlx_hook(a.win, 17, 0, ft_close, &a);
