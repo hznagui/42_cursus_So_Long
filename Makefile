@@ -6,7 +6,7 @@
 #    By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 15:20:47 by hznagui           #+#    #+#              #
-#    Updated: 2023/02/16 16:29:13 by hznagui          ###   ########.fr        #
+#    Updated: 2023/02/17 11:23:55 by hznagui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,15 @@ NAME_B = so_long_bonus
 
 FLAGS = -Wall -Wextra -Werror
 
-MAND =
+MAND = mandatory/
 
-BON = 
+BON = bonus/
 
 BNS_FILE = 	bonus/main_bonus.c \
 			bonus/utils.bonus.c \
 			bonus/utils__bonus.c \
 			bonus/utils_bonus.c \
+			bonus/utils1_bonus.c \
 			bonus/error_bonus.c \
 			
 SRC_FILE = 	mandatory/utils.c \
@@ -40,23 +41,36 @@ OBJ_FILE_B = $(BNS_FILE:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ_FILE) mandatory/so_long.h $(MAND)
-	cc $(FLAGS) $(OBJ_FILE) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME) : $(OBJ_FILE) mandatory/so_long.h 
+	@cc $(FLAGS) $(OBJ_FILE) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@echo "--->[mandatory part successfully created ✅]<---"
 
-bonus : $(OBJ_FILE_B) bonus/so_long_bonus.h $(BON)
-	cc $(FLAGS) $(OBJ_FILE_B) -lmlx -framework OpenGL -framework AppKit -o $(NAME_B)
 
-$(MAND)%.o: %.c mandatory/so_long.h
-	$(CC) $(FLAGS) -Imlx -c $< -o $@
+bonus : $(NAME_B)
 
-$(BON)%.o: %.c bonus/so_long_bonus.h
-	$(CC) $(FLAGS) -Imlx -c $< -o $@
+$(NAME_B): $(OBJ_FILE_B)  bonus/so_long_bonus.h 
+	@cc $(FLAGS) $(OBJ_FILE_B) -lmlx -framework OpenGL -framework AppKit -o $(NAME_B)
+	@echo "--->[bonus part successfully created ✅]<---"
+
+
+$(MAND)%.o: $(MAND)%.c mandatory/so_long.h 
+	@$(CC) $(FLAGS) -Imlx -c $< -o $@
+
+
+
+$(BON)%.o: $(BON)%.c bonus/so_long_bonus.h
+	@$(CC) $(FLAGS) -Imlx -c $< -o $@
+
+
 
 clean :
-	rm -rf $(OBJ_FILE) $(OBJ_FILE_B)
+	@rm -rf $(OBJ_FILE) $(OBJ_FILE_B)
+	@echo "--->[obj file deleted successfully ✅]<---"
 
 fclean: clean
-	rm -f $(NAME) $(NAME_B)
+	@rm -f $(NAME) $(NAME_B)
+	@echo "--->[programs deleted successfully ✅]<---"
+
 
 re : fclean all
 

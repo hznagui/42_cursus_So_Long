@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:27:51 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 15:52:23 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 11:09:33 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct data
 	void	*mlx;
 	void	*win;
 	void	*grn;
+	char	*nbr;
 	void	*wall;
 	int		width;
 	int		height;
@@ -61,5 +62,6 @@ void		ft_abort(int i);
 void		ft_putnbr(int n);
 void		ft_putchar(char c);
 void		ft_check(t_alldata *a);
+char	*ft_itoa(int n);
 
 #endif

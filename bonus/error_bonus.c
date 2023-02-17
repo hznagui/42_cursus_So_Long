@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:10:37 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 15:27:02 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 11:00:06 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	find_path(int i, int h, t_alldata *a)
 		find_path(i, h - 1, a);
 	}
 }
+/*----------------------------------------------------------------*/
 
 int	find_exit(char **a)
 {
@@ -51,6 +52,7 @@ int	find_exit(char **a)
 	}
 	return (1);
 }
+/*----------------------------------------------------------------*/
 
 void	check_nb(t_alldata *a, int P, int C, int E)
 {
@@ -77,6 +79,7 @@ void	check_nb(t_alldata *a, int P, int C, int E)
 	if (P != 1 || C == 0 || E != 1)
 		ft_abort(4);
 }
+/*----------------------------------------------------------------*/
 
 void	check_eadgs(t_alldata *a, int k, int y, int z)
 {
@@ -97,6 +100,7 @@ void	check_eadgs(t_alldata *a, int k, int y, int z)
 		k++;
 	}
 }
+/*----------------------------------------------------------------*/
 
 void	check_size(t_alldata *a, int k, int y)
 {
@@ -118,6 +122,7 @@ void	check_size(t_alldata *a, int k, int y)
 	}
 	check_eadgs(a, 0, 0, 0);
 }
+/*----------------------------------------------------------------*/
 
 void	ft_check(t_alldata *a)
 {
