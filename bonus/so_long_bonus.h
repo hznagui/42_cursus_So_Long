@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:27:51 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/17 15:38:05 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:16:28 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void		ft_abort(int i);
 void		ft_putnbr(int n);
 void		ft_putchar(char c);
 void		ft_check(t_alldata *a);
+void		check_name(char *h);
 char		*ft_itoa(int n);
 void		skip_nl(t_alldata *a);
 int			ft_close(void *a);

@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:10:37 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 16:04:09 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:20:38 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	check_size(t_alldata *a, int k, int y)
 
 	h = a->d - 1;
 	if (5 > ft_strlen(a->taible[0], '\0') || a->d < 3
-		|| (int)ft_strlen(a->taible[0], '\0') <= a->d)
+		|| (int)ft_strlen(a->taible[0], '\0') == a->d)
 		ft_abort(2);
 	while (a->taible[k])
 	{

@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:28 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/17 15:33:55 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:21:22 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,20 @@ void	ft_check(t_alldata *a)
 	find_path(a->i, a->h, a);
 	if (!find_meat(a->taible2) || !find_exit(a->taible2))
 		ft_abort(3);
+}
+/*----------------------------------------------------------------*/
+
+void	check_name(char *h)
+{
+	int	y;
+
+	y = ft_strlen(h, '\0');
+	if (h[y - 1] != 'r')
+		ft_abort(2);
+	if (h[y - 2] != 'e')
+		ft_abort(2);
+	if (h[y - 3] != 'b')
+		ft_abort(2);
+	if (h[y - 4] != '.')
+		ft_abort(2);
 }

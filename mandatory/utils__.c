@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:04:54 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 15:53:40 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:13:31 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_abort(int i)
 	if (i == 1)
 		write(2, "Error : malloc problem \n", 25);
 	else if (i == 2)
-		write(2, "Error : please check the map size\n", 35);
+		write(2, "Error : you have a problem whith map\n", 38);
 	else if (i == 3)
 		write(2, "Error : check the path\n", 24);
 	else if (i == 4)

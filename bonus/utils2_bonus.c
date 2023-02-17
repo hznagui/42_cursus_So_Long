@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:35 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/17 15:26:55 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 17:46:24 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,19 @@ int	anime(t_alldata *a)
 
 void	images2(t_alldata *a)
 {
-	a->wall = mlx_xpm_file_to_image(a->mlx, "./utils/wall.xpm", &a->width,
+	a->wall = mlx_xpm_file_to_image(a->mlx, "./textures/wall.xpm", &a->width,
 			&a->height);
 	if (!(a->wall) || a->width != 50 || a->height != 50)
 		ft_abort(10);
-	a->ply = mlx_xpm_file_to_image(a->mlx, "./utils/playerfinish.xpm",
+	a->ply = mlx_xpm_file_to_image(a->mlx, "./textures/playerfinish.xpm",
 			&a->width, &a->height);
 	if (!(a->ply) || a->width != 50 || a->height != 50)
 		ft_abort(10);
-	a->opndor = mlx_xpm_file_to_image(a->mlx, "./utils/opendoor.xpm", &a->width,
-			&a->height);
+	a->opndor = mlx_xpm_file_to_image(a->mlx, "./textures/opendoor.xpm",
+			&a->width, &a->height);
 	if (!(a->opndor) || a->width != 50 || a->height != 50)
 		ft_abort(10);
-	a->ply2 = mlx_xpm_file_to_image(a->mlx, "./utils/playerme9lob.xpm",
+	a->ply2 = mlx_xpm_file_to_image(a->mlx, "./textures/playerme9lob.xpm",
 			&a->width, &a->height);
 	if (!(a->ply2) || a->width != 50 || a->height != 50)
 		ft_abort(10);
@@ -89,7 +89,7 @@ void	images2(t_alldata *a)
 			a->d * a->height, "So_long");
 	if (!(a->win))
 		ft_abort(10);
-	a->enemy4 = mlx_xpm_file_to_image(a->mlx, "./utils/fire4.xpm", &a->width,
+	a->enemy4 = mlx_xpm_file_to_image(a->mlx, "./textures/fire4.xpm", &a->width,
 			&a->height);
 	if (!(a->enemy4) || a->width != 50 || a->height != 50)
 		ft_abort(10);
@@ -99,27 +99,27 @@ void	images2(t_alldata *a)
 
 void	images(t_alldata *a)
 {
-	a->grn = mlx_xpm_file_to_image(a->mlx, "./utils/realwall.xpm", &a->width,
+	a->grn = mlx_xpm_file_to_image(a->mlx, "./textures/realwall.xpm", &a->width,
 			&a->height);
 	if (!(a->grn) || a->width != 50 || a->height != 50)
 		ft_abort(10);
-	a->col = mlx_xpm_file_to_image(a->mlx, "./utils/l7am.xpm", &a->width,
+	a->col = mlx_xpm_file_to_image(a->mlx, "./textures/l7am.xpm", &a->width,
 			&a->height);
 	if (!(a->col) || a->width != 50 || a->height != 50)
 		ft_abort(10);
-	a->dor = mlx_xpm_file_to_image(a->mlx, "./utils/bab.xpm", &a->width,
+	a->dor = mlx_xpm_file_to_image(a->mlx, "./textures/bab.xpm", &a->width,
 			&a->height);
 	if (!(a->dor) || a->width != 50 || a->height != 50)
 		ft_abort(10);
-	a->enemy1 = mlx_xpm_file_to_image(a->mlx, "./utils/fire.xpm", &a->width,
+	a->enemy1 = mlx_xpm_file_to_image(a->mlx, "./textures/fire.xpm", &a->width,
 			&a->height);
 	if (!(a->enemy1) || a->width != 50 || a->height != 50)
 		ft_abort(10);
-	a->enemy2 = mlx_xpm_file_to_image(a->mlx, "./utils/fire2.xpm", &a->width,
+	a->enemy2 = mlx_xpm_file_to_image(a->mlx, "./textures/fire2.xpm", &a->width,
 			&a->height);
 	if (!(a->enemy2) || a->width != 50 || a->height != 50)
 		ft_abort(10);
-	a->enemy3 = mlx_xpm_file_to_image(a->mlx, "./utils/fire3.xpm", &a->width,
+	a->enemy3 = mlx_xpm_file_to_image(a->mlx, "./textures/fire3.xpm", &a->width,
 			&a->height);
 	if (!(a->enemy3) || a->width != 50 || a->height != 50)
 		ft_abort(10);

@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:46:15 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/17 15:35:58 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:16:21 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	main(int argc, char **argv)
 		a.d = 0;
 		a.n = 0;
 		a.z = 0;
+		check_name(argv[1]);
 		a.str = reading_map(argv[1], NULL, 1);
 		skip_nl(&a);
 		a.mlx = mlx_init();

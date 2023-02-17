@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:27:51 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/17 10:59:25 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:15:14 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,5 @@ void		check_eadgs(t_alldata *a, int k, int y, int z);
 void		check_nb(t_alldata *a, int P, int C, int E);
 int			find_exit(char **a);
 void		find_path(int i, int h, t_alldata *a);
+void		check_name(char *h);
 #endif

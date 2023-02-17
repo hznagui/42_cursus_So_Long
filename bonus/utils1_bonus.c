@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:59:26 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/17 15:13:01 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 17:42:19 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,18 @@ char	*ft_itoa(int n)
 
 void	skip_nl(t_alldata *a)
 {
-	int	u;
 	int	m;
 
+	m = 1;
 	while (a->str[a->z])
 	{
-		u = 0;
 		if (a->str[a->z] != '\n')
-			m = 1;
-		while (a->str[a->z] == '\n' && m == 1)
-		{
-			u++;
-			a->z++;
-		}
-		if (a->str[a->z] && u > 1)
+			m = 0;
+		else if (a->str[a->z] == '\n' && m == 1)
+			ft_abort(2);
+		else if (a->str[a->z] == '\n' && a->str[a->z + 1] == '\n')
+			ft_abort(2);
+		else if (a->str[a->z] == '\n' && a->str[a->z + 1] == '\0')
 			ft_abort(2);
 		a->z++;
 	}
