@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:46:15 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/16 18:59:08 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 11:42:57 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,15 @@ void	fill_win2(t_alldata *a)
 		mlx_put_image_to_window(a->mlx, a->win, a->enemy, a->width * a->h,
 				a->height * a->i);
 	a->nbr = ft_itoa(a->n);
+	if (!a->nbr)
+		ft_abort(1);
 	mlx_string_put(a->mlx, a->win, 0, 0, 0xFFFFFF,"the moves :  ");
 	mlx_string_put(a->mlx, a->win, 120, 0, 0xFFFFFF,a->nbr);
+	if (a->nbr)
+	{
+		free(a->nbr);
+		a->nbr=NULL;
+	}
 }
 void	fill_win(t_alldata *a)
 {
