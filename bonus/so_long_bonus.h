@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:27:51 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/17 11:09:33 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 13:56:58 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ typedef struct data
 	void	*ply;
 	void	*ply2;
 	void	*dor;
-	void	*enemy;
+	void	*enemy1;
+	void	*enemy2;
+	void	*enemy3;
+	void	*enemy4;
 	char	*str;
 	void	*col;
 	void	*opndor;
