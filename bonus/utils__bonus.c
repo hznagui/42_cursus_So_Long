@@ -6,7 +6,7 @@
 /*   By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:04:54 by hznagui           #+#    #+#             */
-/*   Updated: 2023/02/17 10:22:39 by hznagui          ###   ########.fr       */
+/*   Updated: 2023/02/17 15:34:38 by hznagui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	find_player(t_alldata *a)
 {
-
 	a->i = 0;
 	a->h = 0;
 	while ((a->taible)[a->i])
@@ -70,7 +69,7 @@ void	ft_abort(int i)
 	else if (i == 7)
 		write(2, "Error : check arguments \n", 26);
 	else if (i == 8)
-		write(2, "Error : there are nothing ! \n", 30);	
+		write(2, "Error : there are nothing ! \n", 30);
 	else if (i == 9)
 		write(2, "Error : check the edges of the map \n", 37);
 	else if (i == 10)

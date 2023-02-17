@@ -6,7 +6,7 @@
 #    By: hznagui <hznagui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 15:20:47 by hznagui           #+#    #+#              #
-#    Updated: 2023/02/17 11:23:55 by hznagui          ###   ########.fr        #
+#    Updated: 2023/02/17 15:35:06 by hznagui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ BNS_FILE = 	bonus/main_bonus.c \
 			bonus/utils__bonus.c \
 			bonus/utils_bonus.c \
 			bonus/utils1_bonus.c \
+			bonus/utils2_bonus.c \
+			bonus/utils3_bonus.c \
 			bonus/error_bonus.c \
 			
 SRC_FILE = 	mandatory/utils.c \
